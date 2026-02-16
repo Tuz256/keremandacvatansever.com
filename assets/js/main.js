@@ -56,23 +56,23 @@ function updateGradient() {
 
 window.addEventListener('scroll', updateGradient);
 
-window.addEventListener('scroll', () => {
-    if (!topBar) return;
+// window.addEventListener('scroll', () => {
+//     if (!topBar) return;
 
-    const scrollY = window.scrollY;
-    fadeDistance = window.innerHeight * 0.5; // kaç px'de tamamen görünsün
+//     const scrollY = window.scrollY;
+//     fadeDistance = window.innerHeight * 0.5; // kaç px'de tamamen görünsün
 
-    let opacity = scrollY / fadeDistance;
-    opacity = Math.max(0, Math.min(1, opacity));
+//     let opacity = scrollY / fadeDistance;
+//     opacity = Math.max(0, Math.min(1, opacity));
 
-    topBar.style.opacity = opacity;
+//     topBar.style.opacity = opacity;
 
-    if (opacity > 0.1) {
-        topBar.style.pointerEvents = 'auto';
-    } else {
-        topBar.style.pointerEvents = 'none';
-    }
-});
+//     if (opacity > 0.1) {
+//         topBar.style.pointerEvents = 'auto';
+//     } else {
+//         topBar.style.pointerEvents = 'none';
+//     }
+// });
 
 window.addEventListener('scroll', () => {
     if (!introDone) return;
