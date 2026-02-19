@@ -34,6 +34,8 @@ body {
 
 p {
   color: var(--color-text);
+  letter-spacing: 1px;
+  line-height: 1.6;
 }
 
 ul {
@@ -102,24 +104,16 @@ ul {
   transform: scaleX(1);
 }
 
-.short-about {
+.cba {
   background: #4e56c0bb;
-  height: 130vh;
 }
 
-.interest {
-  height: 100vh;
+.abc {
   background: #811844;
-
 }
 
 .interest-second {
   background: #4e56c0bb;
-}
-
-.area {
-  width: 100%;
-  height: 92vh;
 }
 
 .welcome {
@@ -130,21 +124,20 @@ ul {
   justify-content: center;
 }
 
-.welcome.title.text {
+.welcome-title-text {
   font-size: 3rem;
   font-weight: 600;
   background: transparent;
   color: #ffffff;
-  opacity: 0;
 }
 
 .section-area {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 80px;
+  padding: 18vh 0px 18vh 0px;
 }
 
 .section-container {
