@@ -1,11 +1,9 @@
 const root = document.documentElement;
+let introDone = false;
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'auto';
 }
-
-const topBar = document.querySelector('.top-bar');
-let introDone = false;
 
 function dynamicOpacity(text) {
     const rect = text.getBoundingClientRect();
@@ -23,7 +21,6 @@ function dynamicOpacity(text) {
     text.style.opacity = opacity;
 }
 
-// İlk giriş animasyonu
 window.addEventListener('load', () => {
     const text = document.querySelector('.welcome.title');
     text.style.opacity = 0;
@@ -35,7 +32,7 @@ window.addEventListener('load', () => {
 
     setTimeout(() => {
         text.style.transition = 'none';
-        introDone = true; // scroll artık aktif
+        introDone = true;
     }, 2200);
 });
 
@@ -56,6 +53,15 @@ function updateGradient() {
 
 window.addEventListener('scroll', updateGradient);
 
+
+
+window.addEventListener('scroll', () => {
+    if (!introDone) return;
+
+    dynamicOpacity(document.querySelector('.welcome.title'));
+
+});
+
 // window.addEventListener('scroll', () => {
 //     if (!topBar) return;
 
@@ -73,10 +79,3 @@ window.addEventListener('scroll', updateGradient);
 //         topBar.style.pointerEvents = 'none';
 //     }
 // });
-
-window.addEventListener('scroll', () => {
-    if (!introDone) return;
-
-    dynamicOpacity(document.querySelector('.welcome.title'));
-
-});
