@@ -22,7 +22,7 @@ function dynamicOpacity(text) {
 }
 
 window.addEventListener('load', () => {
-    const text = document.querySelector('.welcome.title');
+    const text = document.querySelector('.welcome-title-text');
     text.style.opacity = 0;
     text.style.transition = 'opacity 2.2s ease-out';
 
@@ -58,8 +58,16 @@ window.addEventListener('scroll', updateGradient);
 window.addEventListener('scroll', () => {
     if (!introDone) return;
 
-    dynamicOpacity(document.querySelector('.welcome.title'));
+    dynamicOpacity(document.querySelector('.welcome-title-text'));
 
+});
+
+
+const textarea = document.getElementById("message");
+
+textarea.addEventListener("input", function () {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
 });
 
 // window.addEventListener('scroll', () => {
