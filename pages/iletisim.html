@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="assets/css/base.css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/layout.css"> -->
+  <!-- <link rel="stylesheet" href="assets/css/components.css"> -->
+  <link rel="stylesheet" href="/assets/css/pages/iletisim.css" />
+  <script src="/assets/js/iletisim.js" defer></script>
+  <title>TEST</title>
+</head>
+
+<body>
+
+  <header class="top-bar-container">
+    <div class="top-bar">
+
+      <nav class="title">
+        <ul>
+          <li><a href="/index.html">Kerem Andaç Vatansever</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/pages/hakkimda.html">Hakkımda</a></li>
+          <li><a href="/pages/projeler.html">Projeler</a></li>
+          <li><a href="/pages/deneyim.html">Deneyim</a></li>
+          <li><a href="/pages/iletisim.html" class="active">İletişim</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <div class="welcome area red">
+    <div class="title-container">
+      <h1 class="title-text">Bana ulaş!</h1>
+    </div>
+    <!-- <div class="section-container"> -->
+
+
+    <form class="contact-form" action="mail.php" method="POST">
+
+      <div style="display: flex; gap: 15px;">
+        <input type="text" name="name" placeholder="İsim Soy-isim" required>
+        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+      </div>
+      <textarea id="message" name="message" placeholder="Mesajınız" required></textarea>
+      <button type="submit">Gönder</button>
+
+    </form>
+  </div>
+
+
+
+
+
+
+
+  <div class="area blue">
+    <footer>
+      <div></div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
