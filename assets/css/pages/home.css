@@ -1,0 +1,15 @@
+.welcome {
+  height: 100vh;
+  background: var(--color-bg-welcome);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-title-text {
+  font-size: 3rem;
+  font-weight: 600;
+  background: transparent;
+  color: #ffffff;
+  opacity: 0;
+}

@@ -1,0 +1,57 @@
+.short-about {
+  background: #4e56c0bb;
+  height: 130vh;
+}
+
+.interest-second {
+  background: #4e56c0bb;
+}
+
+.section-container {
+  background: var(--color-bg-section);
+  display: flex;
+  height: fit-content;
+  width: 95%;
+  border-radius: 15px;
+  padding: 20px;
+  gap: 8px;
+}
+
+.title-text {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.interest-container {
+  background: #811844;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px;
+  padding: 10vh 2vw 10vh 2vw;
+  gap: 40px;
+}
+
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: end;
+  align-items: center;
+
+  gap: 18px;
+  border-radius: 23px;
+  padding: 15px;
+}
+
+.title-wrapper {
+  display: flex;
+
+  justify-self: start;
+  justify-content: center;
+  border-radius: 15px;
+  background: var(--color-bg-section);
+  padding: 8px;
+  width: 250px;
+}
