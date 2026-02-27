@@ -1,0 +1,48 @@
+:root {
+    --color-bg-html: #000000bb;
+    --color-bg-welcome: linear-gradient(var(--welcome-gradient-angle),
+            #3a091e,
+            #601030,
+            #7d1740,
+            #811844,
+            #7d1740,
+            #601030,
+            #3a091e);
+    --color-bg-section: #1f1f1fcc;
+    --color-bg-body: transparent;
+    --color-bg-top-bar: #1f1f1fcc;
+    --color-text: #ffffff;
+
+    --font: sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    background: var(--color-bg-html);
+}
+
+body {
+    background: var(--color-bg-body);
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    color: var(--color-text);
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+ul {
+    display: flex;
+    text-align: center;
+    gap: 30px;
+    list-style: none;
+}
