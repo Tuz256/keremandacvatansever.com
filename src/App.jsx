@@ -10,43 +10,13 @@ const theme = {
   colors: {
     bg: "#181822",
     bgNavBar: "#0a0a0eeb",
-    brandColor: "#7fffd4",
+    // brandColor: "#7fffd4",
+    brandColor: "rgb(217, 0, 255)",
 
   },
 }
 
-const NAV_LINKS = ["HAKKIMDA", "PROJELER", /*"CV"*/, "İLETİŞİM"];
-
-// const PROJECTS = [
-//   {
-//     id: 1,
-//     title: "Bisiklet Yol Bilgisayarı",
-//     description: "React ve Node.js ile geliştirilmiş tam yığın e-ticaret çözümü. Ödeme entegrasyonu ve gerçek zamanlı envanter yönetimi içerir.",
-//     tags: ["React", "Node.js", "MongoDB", "Stripe"],
-//     color: "#c8f0d0",
-//   },
-//   {
-//     id: 2,
-//     title: "Hava Durumu Uygulaması",
-//     description: "OpenWeather API kullanarak anlık hava durumu ve 7 günlük tahmin sunan PWA.",
-//     tags: ["React", "API", "PWA", "CSS"],
-//     color: "#c8e0f0",
-//   },
-//   {
-//     id: 3,
-//     title: "Görev Yönetim Aracı",
-//     description: "Sürükle-bırak özellikli Kanban panosu. Takım işbirliği ve ilerleme takibi sağlar.",
-//     tags: ["React", "DnD", "Firebase", "Tailwind"],
-//     color: "#f0e4c8",
-//   },
-//   {
-//     id: 4,
-//     title: "Blog CMS",
-//     description: "Markdown destekli, SEO optimize edilmiş kişisel blog platformu. Next.js ile statik site üretimi.",
-//     tags: ["Next.js", "Markdown", "SEO", "Vercel"],
-//     color: "#f0c8d8",
-//   },
-// ];
+const NAV_LINKS = ["HAKKIMDA", "PROJELER"/*, "CV", "İLETİŞİM"*/];
 
 const PROJECTS = [
   {
@@ -364,19 +334,30 @@ function About() {
 
         <div>
           <h2 style={{ fontFamily: theme.fonts.heading, fontSize: "clamp(2rem,4vw,2.75rem)", color: "#fff", margin: "1.5rem", lineHeight: 1.2 }}>
-            Doğaya aşık,<br />
-            kod yazan,<br />
+            <span style={{ color: "#00cddb" }}>Doğa</span>'ya aşık,<br />
+            <span style={{ color: "#66db00" }}>kod</span> yazan,<br />
             <span style={{ color: theme.colors.brandColor }}>mühendis</span> biri.
           </h2>
-          <p style={{ fontFamily: theme.fonts.body, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, fontSize: "1rem", marginBottom: "1.25rem" }}>
+          <p style={{
+            fontFamily: theme.fonts.body, fontSize: "1rem",
+            color: "#ffffffcc", lineHeight: 1.8,
+            marginBottom: "1.25rem",
+            letterSpacing: "1",
+          }}>
             19 Ocak 2003 Bursa doğumluyum. Turhan Tayan Anadolu Lisesi 2021 mezunuyum.
-            Çankırı Karatekin Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum. Küçüklükten bu yana
-            elektroniğe ve yazılıma ilgim var. Her daim meraklıyım ve araştırarak öğrenmeyi severim. Üniversitemin
-            bünyesinde bulunan Yapay Zeka Topluluğunda takım arkadaşlarımla beraber çeşitli projeler geliştirdim ve
-            yönettim. 2017'den beri profesyonel olarak dağ bisikleti biniyorum. Hem ulaşım olarak, hem hobi olarak
-            bisiklet ile ilgilenmek ve doğanın içerisinde olmak beni rahatlatıyor.
+            Çankırı Karatekin Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum.
+            Küçüklükten bu yana elektroniğe ve yazılıma ilgim var. Her daim meraklıyım
+            ve araştırarak öğrenmeyi severim. Üniversitemin bünyesinde bulunan Yapay
+            Zeka Topluluğunda takım arkadaşlarımla beraber çeşitli projeler geliştirdim
+            ve yönettim. 2017'den beri profesyonel olarak dağ bisikleti biniyorum. Hem
+            ulaşım olarak, hem hobi olarak bisiklet ile ilgilenmek ve doğanın içerisinde
+            olmak beni rahatlatıyor.
           </p>
-          <p style={{ fontFamily: theme.fonts.body, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, fontSize: "1rem", marginBottom: "2rem" }}>
+          <p style={{
+            fontFamily: theme.fonts.body, fontSize: "1rem",
+            color: "#ffffffcc", lineHeight: 1.8,
+            marginBottom: "2rem"
+          }}>
             Boş zamanlarımda teknolojideki yenilikleri takip ediyor, dağ bisikletçiliği yapıyor ve fotoğrafçılıkla ilgileniyorum.
           </p>
           <div style={{ display: "flex", gap: "2rem" }}>
@@ -675,7 +656,7 @@ export default function App() {
       <About />
       <Projects />
       {/* <Cv /> */}
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </div>
   );
