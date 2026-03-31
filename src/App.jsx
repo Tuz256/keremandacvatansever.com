@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import cvPhoto from "./assets/cv.png";
+import me from "./assets/cift_monitor.png";
 
 const theme = {
   fonts: {
@@ -306,7 +307,7 @@ function About() {
         transition: "all 0.8s ease",
       }}>
         {/* Avatar placeholder */}
-        <div style={{ position: "relative" }}>
+        {/* <div style={{ position: "relative" }}>
           <div style={{
             width: "100%", paddingBottom: "100%",
             background: "linear-gradient(135deg, #1a1a24, #0f1720)",
@@ -319,6 +320,7 @@ function About() {
               display: "flex", alignItems: "center", justifyContent: "center",
               flexDirection: "column", gap: "0.5rem",
             }}>
+              
               <div style={{
                 width: "80px", height: "80px", borderRadius: "50%",
                 background: "#7fffd426",
@@ -330,8 +332,33 @@ function About() {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
 
+        {/* Avatar */}
+        <div style={{ position: "relative" }}>
+          <div style={{
+            width: "100%",
+            paddingBottom: "100%",
+            borderRadius: "16px",
+            border: "1px solid rgba(127,255,212,0.15)",
+            position: "relative",
+            overflow: "hidden",
+          }}>
+
+            <img
+              src={me}
+              alt="Avatar"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover"
+              }}
+            />
+
+          </div>
+        </div>
         <div>
           <h2 style={{ fontFamily: theme.fonts.heading, fontSize: "clamp(2rem,4vw,2.75rem)", color: "#fff", margin: "1.5rem", lineHeight: 1.2 }}>
             <span style={{ color: "#00cddb" }}>Doğa</span>'ya aşık,<br />
