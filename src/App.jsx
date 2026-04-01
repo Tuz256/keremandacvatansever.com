@@ -11,47 +11,54 @@ const theme = {
   colors: {
     bg: "#181822",
     bgNavBar: "#0a0a0eeb",
-    // brandColor: "#7fffd4",
+    brandColor2: "#7fffd4",
     brandColor: "rgb(217, 0, 255)",
 
   },
 }
 
-const NAV_LINKS = ["HAKKIMDA", "PROJELER"/*, "CV", "İLETİŞİM"*/];
+// const NAV_LINKS = ["HAKKIMDA", "PROJELER"/*, "CV", "İLETİŞİM"*/];
+
+const NAV_LINKS = [
+  { label: "HAKKIMDA", id: "About" },
+  { label: "PROJELER", id: "Projects" },
+  // { label: "CV", id: "Cv" },
+  // { label: "İLETİŞİM", id: "Contact" },
+];
 
 const PROJECTS = [
   {
     id: 1,
     title: "Bisiklet Yol Bilgisayarı",
-    description: "React ve Node.js ile geliştirilmiş tam yığın e-ticaret çözümü.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    description: "Bisikletler için ESP32 üzerine geliştirilmiş bir yol bilgisayarı.",
+    tags: ["C / C++", "TFT", "ESP32", "Arduino", "Embedded"],
     color: "#c8f0d0",
-    emoji: "🛒",
+    emoji: "🚴‍♂️",
   },
-  {
-    id: 2,
-    title: "Hava Durumu Uygulaması",
-    description: "OpenWeather API ile anlık hava ve 7 günlük tahmin sunar.",
-    tags: ["React", "API", "PWA", "CSS"],
-    color: "#c8e0f0",
-    emoji: "🌤️",
-  },
-  {
-    id: 3,
-    title: "Görev Yönetim Aracı",
-    description: "Sürükle-bırak özellikli Kanban panosu.",
-    tags: ["React", "DnD", "Firebase", "Tailwind"],
-    color: "#f0e4c8",
-    emoji: "📋",
-  },
-  {
-    id: 4,
-    title: "Blog CMS",
-    description: "Markdown destekli kişisel blog platformu.",
-    tags: ["Next.js", "Markdown", "SEO", "Vercel"],
-    color: "#f0c8d8",
-    emoji: "📝",
-  },
+  // {
+  //   id: 2,
+  //   title: "Hava Durumu Uygulaması",
+  //   description: "OpenWeather API ile anlık hava ve 7 günlük tahmin sunar.",
+  //   tags: ["React", "API", "PWA", "CSS"],
+  //   color: "#c8e0f0",
+  //   emoji: "🌤️",
+  // },
+  // {
+  //   id: 3,
+  //   title: "Görev Yönetim Aracı",
+  //   description: "Sürükle-bırak özellikli Kanban panosu.",
+  //   tags: ["React", "DnD", "Firebase", "Tailwind"],
+  //   color: "#f0e4c8",
+  //   emoji: "📋",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Blog CMS",
+  //   description: "Markdown destekli kişisel blog platformu.",
+  //   tags: ["Next.js", "Markdown", "SEO", "Vercel"],
+  //   color: "#f0c8d8",
+  //   emoji: "📝",
+  // },
 ];
 
 function useInView(threshold = 0.15) {
@@ -80,15 +87,24 @@ function Navbar({ active, setActive }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // const handleNav = (link) => {
+  //   setActive(link);
+  //   setMenuOpen(false);
+  //   const id = link
+  //     .replace(/İ/g, "i").replace(/I/g, "i")
+  //     .toLowerCase()
+  //     .replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g")
+  //     .replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c");
+  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // };
+
   const handleNav = (link) => {
-    setActive(link);
+    setActive(link.label);
     setMenuOpen(false);
-    const id = link
-      .replace(/İ/g, "i").replace(/I/g, "i")
-      .toLowerCase()
-      .replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g")
-      .replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+    document.getElementById(link.id)?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -114,7 +130,7 @@ function Navbar({ active, setActive }) {
 
       {/* Desktop */}
       <div style={{ display: "flex", gap: "2rem" }} className="desktop-nav">
-        {NAV_LINKS.map(link => (
+        {/* {NAV_LINKS.map(link => (
           <button key={link} onClick={() => handleNav(link)} style={{
             background: "none", border: "none", cursor: "pointer",
             fontFamily: theme.fonts.body,
@@ -127,6 +143,31 @@ function Navbar({ active, setActive }) {
             borderBottom: active === link ? "1px solid " : "1px solid transparent",
           }}>
             {link}
+          </button>
+        ))} */}
+
+        {NAV_LINKS.map((link) => (
+          <button
+            key={link.id}
+            onClick={() => handleNav(link)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: theme.fonts.body,
+              fontSize: "0.875rem",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: active === link.label ? theme.colors.brandColor : "#ffffffa6",
+              transition: "color 0.2s",
+              padding: "0.25rem 0",
+              borderBottom:
+                active === link.label
+                  ? `1px solid ${theme.colors.brandColor}`
+                  : "1px solid transparent",
+            }}
+          >
+            {link.label}
           </button>
         ))}
       </div>
@@ -145,7 +186,7 @@ function Navbar({ active, setActive }) {
           background: "#0a0a0ef7", padding: "1.5rem",
           display: "flex", flexDirection: "column", gap: "1.25rem",
         }}>
-          {NAV_LINKS.map(link => (
+          {/* {NAV_LINKS.map(link => (
             <button key={link} onClick={() => handleNav(link)} style={{
               background: "none", border: "none", cursor: "pointer",
               fontFamily: theme.fonts.body,
@@ -153,6 +194,24 @@ function Navbar({ active, setActive }) {
               textAlign: "left",
             }}>
               {link}
+            </button>
+          ))} */}
+
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleNav(link)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: theme.fonts.body,
+                fontSize: "1rem",
+                color: active === link.label ? theme.colors.brandColor : "#fff",
+                textAlign: "left",
+              }}
+            >
+              {link.label}
             </button>
           ))}
         </div>
@@ -168,7 +227,7 @@ function Navbar({ active, setActive }) {
   );
 }
 
-function Hero() {
+function Hero(setActive) {
   const handleScroll = (id, label) => {
     setActive(label);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -233,7 +292,7 @@ function Hero() {
           animation: "fadeUp 0.8s 0.55s ease both",
         }}>
           {/* Projeleri Gör Buton */}
-          <button onClick={() => handleScroll("projeler", "Projeler")} style={{
+          {/* <button onClick={() => handleScroll("projeler", "Projeler")} style={{
             padding: "0.875rem 2rem",
             background: theme.colors.brandColor, color: "#0a0a0e",
             border: "none", borderRadius: "4px",
@@ -247,10 +306,10 @@ function Hero() {
             onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}
           >
             Projeleri Gör
-          </button>
+          </button> */}
 
           {/* İletişime Geç Buton */}
-          < button onClick={() => handleScroll("iletisim", "İletişim")} style={{
+          {/* < button onClick={() => handleScroll("iletisim", "İletişim")} style={{
             padding: "0.875rem 2rem",
             background: "transparent", color: "#fff",
             border: "1px solid theme.colors.brandColor", borderRadius: "4px",
@@ -264,7 +323,7 @@ function Hero() {
             onMouseLeave={e => { e.target.style.borderColor = "rgba(255,255,255,0.25)"; e.target.style.color = "#fff"; }}
           >
             İletişime Geç
-          </button>
+          </button> */}
         </div>
 
       </div>
@@ -294,7 +353,7 @@ function Hero() {
 function About() {
   const [ref, inView] = useInView();
   return (
-    <section id="hakkimda" ref={ref} style={{
+    <section id="About" ref={ref} style={{
       padding: "7rem 2rem",
       maxWidth: "1100px",
       margin: "0 auto",
@@ -405,8 +464,7 @@ function Projects() {
   const [ref, inView] = useInView();
 
   return (
-    // <section id="hakkimda" ref={ref} style={{
-    <section id="projeler" ref={ref} style={{ padding: "7rem 2rem", background: "#ffffff05" }}>
+    <section id="Projects" ref={ref} style={{ padding: "7rem 2rem", background: "#ffffff05" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <h2 style={{
           fontFamily: theme.fonts.heading,
@@ -418,8 +476,11 @@ function Projects() {
 
         <div
           style={{
-            display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            // display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            display: "flex", justifySelf: "center",
+            width: "320px", height: "320px",
             gap: "1.5rem",
+            alignItems: "center",
             opacity: inView ? 1 : 0,
             transform: inView ? "none" : "translateY(40px)",
             transition: "all 0.8s ease",
@@ -509,7 +570,7 @@ function ProjectCard({ project, delay }) {
 function Cv() {
   const [ref, inView] = useInView();
   return (
-    <section id="cv" ref={ref} style={{ padding: "7rem 2rem" }}>
+    <section id="Cv" ref={ref} style={{ padding: "7rem 2rem" }}>
       <div style={{ maxWidth: "950px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
           <h2 style={{ fontFamily: theme.fonts.heading, fontSize: "clamp(2rem,4vw,2.75rem)", color: "#fff" }}>CV</h2>
@@ -551,7 +612,7 @@ function Contact() {
   };
 
   return (
-    <section id="iletisim" ref={ref} style={{ padding: "7rem 2rem", background: "#ffffff05" }}>
+    <section id="Contact" ref={ref} style={{ padding: "7rem 2rem", background: "#ffffff05" }}>
       <div style={{
         maxWidth: "600px", margin: "0 auto",
         opacity: inView ? 1 : 0,
