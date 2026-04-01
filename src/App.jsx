@@ -414,13 +414,6 @@ function About() {
             ulaşım olarak, hem hobi olarak bisiklet ile ilgilenmek ve doğanın içerisinde
             olmak beni rahatlatıyor.
           </p>
-          <p style={{
-            fontFamily: theme.fonts.body, fontSize: "1rem",
-            color: "#ffffffcc", lineHeight: 1.8,
-            marginBottom: "2rem"
-          }}>
-            Boş zamanlarımda teknolojideki yenilikleri takip ediyor, dağ bisikletçiliği yapıyor ve fotoğrafçılıkla ilgileniyorum.
-          </p>
           <div style={{ display: "flex", gap: "2rem" }}>
           </div>
         </div>
