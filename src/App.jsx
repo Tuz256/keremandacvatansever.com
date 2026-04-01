@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import cvPhoto from "./assets/cv.png";
 import me from "./assets/cift_monitor.png";
+import { TbArrowBigUpFilled } from "react-icons/tb";
 
 const theme = {
   fonts: {
@@ -12,7 +13,7 @@ const theme = {
     bg: "#181822",
     bgNavBar: "#0a0a0eeb",
     brandColor2: "#7fffd4",
-    brandColor: "rgb(217, 0, 255)",
+    brandColor: "#d900ff",
 
   },
 }
@@ -60,6 +61,54 @@ const PROJECTS = [
   //   emoji: "📝",
   // },
 ];
+
+const ScrollToTopButton = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <button
+      onClick={scrollToTop}
+      style={{
+        position: "fixed", display: "flex",
+        bottom: "40px", right: '40px',
+        width: "60px", height: "60px",
+        justifyContent: "center", alignItems: "center",
+        fontSize: "2rem",
+        borderRadius: "50%",
+        border: "none",
+        backgroundColor: theme.colors.bgNavBar,
+        color: theme.colors.brandColor,
+        cursor: "pointer",
+        display: visible ? "flex" : "none",
+        boxShadow: "0 2px 6px #0000004d",
+      }}
+    >
+      <TbArrowBigUpFilled />
+
+    </button>
+  );
+};
+
 
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
@@ -448,7 +497,6 @@ function Projects() {
             display: "flex", justifySelf: "center",
             width: "320px", height: "320px",
             gap: "1.5rem",
-            alignItems: "center",
             opacity: inView ? 1 : 0,
             transform: inView ? "none" : "translateY(40px)",
             transition: "all 0.8s ease",
@@ -713,6 +761,7 @@ export default function App() {
       <Projects />
       {/* <Cv /> */}
       {/* <Contact /> */}
+      <ScrollToTopButton />
       <Footer />
     </div>
   );
