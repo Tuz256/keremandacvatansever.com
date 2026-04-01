@@ -524,7 +524,7 @@ function ProjectCard({ project, delay }) {
               borderRadius: "4px",
               fontFamily: theme.fonts.body,
               fontSize: "0.72rem", color: theme.colors.brandColor,
-              letterSpacing: "0.05em",
+              letterSpacing: "0.08em",
             }}
           >
             {tag}
