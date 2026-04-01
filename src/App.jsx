@@ -130,21 +130,6 @@ function Navbar({ active, setActive }) {
 
       {/* Desktop */}
       <div style={{ display: "flex", gap: "2rem" }} className="desktop-nav">
-        {/* {NAV_LINKS.map(link => (
-          <button key={link} onClick={() => handleNav(link)} style={{
-            background: "none", border: "none", cursor: "pointer",
-            fontFamily: theme.fonts.body,
-            fontSize: "0.875rem",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: active === link ? theme.colors.brandColor : "#ffffffa6",
-            transition: "color 0.2s",
-            padding: "0.25rem 0",
-            borderBottom: active === link ? "1px solid " : "1px solid transparent",
-          }}>
-            {link}
-          </button>
-        ))} */}
 
         {NAV_LINKS.map((link) => (
           <button
@@ -186,16 +171,6 @@ function Navbar({ active, setActive }) {
           background: "#0a0a0ef7", padding: "1.5rem",
           display: "flex", flexDirection: "column", gap: "1.25rem",
         }}>
-          {/* {NAV_LINKS.map(link => (
-            <button key={link} onClick={() => handleNav(link)} style={{
-              background: "none", border: "none", cursor: "pointer",
-              fontFamily: theme.fonts.body,
-              fontSize: "1rem", color: active === link ? theme.colors.brandColor : "#fff",
-              textAlign: "left",
-            }}>
-              {link}
-            </button>
-          ))} */}
 
           {NAV_LINKS.map((link) => (
             <button
@@ -453,7 +428,7 @@ function About() {
 
       <style>{`
         @media (max-width: 768px) {
-          #hakkimda > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          #About > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
         }
       `}</style>
     </section >
