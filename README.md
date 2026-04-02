@@ -18,7 +18,6 @@ I like styling. But I hate complicated and chaotic structure of html, css and ja
 So I'm using;
 
 * React
-* Vite
 
 
 ## Back-end
