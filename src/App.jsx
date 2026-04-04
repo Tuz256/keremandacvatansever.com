@@ -1,24 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import cvPhoto from "./assets/cv.png";
-import me from "./assets/cift_monitor.png";
 import { TbArrowBigUpFilled } from "react-icons/tb";
 
-const theme = {
-  fonts: {
-    heading: "'Playfair Display', Georgia, serif",
-    body: "'DM Sans', sans-serif"
-  },
-
-  colors: {
-    bg: "#181822",
-    bgNavBar: "#0a0a0eeb",
-    brandColor2: "#7fffd4",
-    brandColor: "#d900ff",
-
-  },
-}
-
-// const NAV_LINKS = ["HAKKIMDA", "PROJELER"/*, "CV", "İLETİŞİM"*/];
+import cvPhoto from "./assets/cv.png";
+import me from "./assets/cift_monitor.png";
 
 const NAV_LINKS = [
   { label: "HAKKIMDA", id: "About" },
@@ -30,37 +14,73 @@ const NAV_LINKS = [
 const PROJECTS = [
   {
     id: 1,
-    title: "Bisiklet Yol Bilgisayarı",
-    description: "Bisikletler için ESP32 üzerine geliştirilmiş bir yol bilgisayarı.",
+    title: "Bisiklet Yol Bilgisayarı v1",
+    description: "Bisikletçiler için, Arduino ile geliştirilmiş basit bir yol bilgisayarı.",
+    link: "https://github.com/Tuz256/Bicycle_Computer",
+    tags: ["C / C++", "TFT", "Arduino", "Embedded"],
+    color: "#c8f0d0",
+    emoji: "🚴‍♂️",
+  },
+  {
+    id: 2,
+    title: "Bisiklet Yol Bilgisayarı v2",
+    description: "Bisikletçiler için ESP32 üzerine geliştirilmiş bir yol bilgisayarı.",
+    link: "https://github.com/Tuz256/Bicycle_Computer_wESP32",
     tags: ["C / C++", "TFT", "ESP32", "Arduino", "Embedded"],
     color: "#c8f0d0",
     emoji: "🚴‍♂️",
   },
-  // {
-  //   id: 2,
-  //   title: "Hava Durumu Uygulaması",
-  //   description: "OpenWeather API ile anlık hava ve 7 günlük tahmin sunar.",
-  //   tags: ["React", "API", "PWA", "CSS"],
-  //   color: "#c8e0f0",
-  //   emoji: "🌤️",
-  // },
-  // {
-  //   id: 3,
-  //   title: "Görev Yönetim Aracı",
-  //   description: "Sürükle-bırak özellikli Kanban panosu.",
-  //   tags: ["React", "DnD", "Firebase", "Tailwind"],
-  //   color: "#f0e4c8",
-  //   emoji: "📋",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Blog CMS",
-  //   description: "Markdown destekli kişisel blog platformu.",
-  //   tags: ["Next.js", "Markdown", "SEO", "Vercel"],
-  //   color: "#f0c8d8",
-  //   emoji: "📝",
-  // },
+  {
+    id: 3,
+    title: "Kişisel Website",
+    description: "Kendimi tanıtmamı sağlayan, çeşitli projelerimi ve hobilerimi sergilediğim bir site.",
+    link: "https://github.com/Tuz256/keremandacvatansever.com",
+    tags: ["React", "CSS", "JavaScript", "Web"],
+    color: "#f0e4c8",
+    emoji: "🌐",
+  },
+  {
+    id: 4,
+    title: "Yapılacaklar Listesi",
+    description: "İşleri takip etmek için sürükle-bırak olarak çalışan bir site.",
+    link: "https://github.com/Tuz256/web-to-do",
+    tags: ["React", "CSS", "JavaScript", "Web"],
+    color: "#f0e4c8",
+    emoji: "📋",
+  },
 ];
+
+const theme = {
+  fonts: {
+    heading: "'Playfair Display', Georgia, serif",
+    body: "'DM Sans', sans-serif"
+  },
+
+  colors: {
+    bg: "#181822",
+    bgNavBar: "#0a0a0eeb",
+    brandColor: "#d900ff",
+    brandColor2: "#7fffd4",
+  },
+}
+
+const styles = {
+  main: {
+    background: theme.colors.bg,
+    minHeight: "100vh",
+    border: "none",
+    overflowX: "hidden"
+  },
+
+  footer: {
+    padding: "2rem",
+    borderTop: "1px solid rgba(255,255,255,0.06)",
+    textAlign: "center",
+    fontFamily: theme.fonts.body,
+    fontSize: "0.8rem",
+    color: "#ffffff40",
+  }
+}
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -109,7 +129,6 @@ const ScrollToTopButton = () => {
   );
 };
 
-
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
@@ -135,17 +154,6 @@ function Navbar({ active, setActive }) {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // const handleNav = (link) => {
-  //   setActive(link);
-  //   setMenuOpen(false);
-  //   const id = link
-  //     .replace(/İ/g, "i").replace(/I/g, "i")
-  //     .toLowerCase()
-  //     .replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g")
-  //     .replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c");
-  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  // };
 
   const handleNav = (link) => {
     setActive(link.label);
@@ -220,6 +228,8 @@ function Navbar({ active, setActive }) {
           background: "#0a0a0ef7", padding: "1.5rem",
           display: "flex", flexDirection: "column", gap: "1.25rem",
         }}>
+
+          if (NAV_LINKS.length === 0) return;
 
           {NAV_LINKS.map((link) => (
             <button
@@ -493,9 +503,8 @@ function Projects() {
 
         <div
           style={{
-            // display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            display: "flex", justifySelf: "center",
-            width: "320px", height: "320px",
+            display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            justifyContent: "center",
             gap: "1.5rem",
             opacity: inView ? 1 : 0,
             transform: inView ? "none" : "translateY(40px)",
@@ -513,9 +522,14 @@ function Projects() {
 
 function ProjectCard({ project, delay }) {
   const [hovered, setHovered] = useState(false);
+  const handleClick = () => {
+    if (!project.link) return;
+    window.open(project.link, "_blank");
+  };
 
   return (
     <div
+      onClick={handleClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -714,14 +728,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer style={{
-      padding: "2rem",
-      borderTop: "1px solid rgba(255,255,255,0.06)",
-      textAlign: "center",
-      fontFamily: theme.fonts.body,
-      fontSize: "0.8rem",
-      color: "#ffffff40",
-    }}>
+    <footer style={styles.footer}>
       © {new Date().getFullYear()} Kerem Andaç Vatansever · Tüm hakları saklıdır.
     </footer>
   );
@@ -749,12 +756,7 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{
-      background: theme.colors.bg,
-      minHeight: "100vh",
-      border: "none",
-      overflowX: "hidden"
-    }}>
+    <div style={styles.main}>
       <Navbar active={active} setActive={setActive} />
       <Hero setActive={setActive} />
       <About />
@@ -763,6 +765,6 @@ export default function App() {
       {/* <Contact /> */}
       <ScrollToTopButton />
       <Footer />
-    </div>
+    </div >
   );
 }
