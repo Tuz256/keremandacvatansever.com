@@ -467,11 +467,8 @@ function About() {
             19 Ocak 2003 Bursa doğumluyum. Turhan Tayan Anadolu Lisesi 2021 mezunuyum.
             Çankırı Karatekin Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum.
             Küçüklükten bu yana elektroniğe ve yazılıma ilgim var. Her daim meraklıyım
-            ve araştırarak öğrenmeyi severim. Üniversitemin bünyesinde bulunan Yapay
-            Zeka Topluluğunda takım arkadaşlarımla beraber çeşitli projeler geliştirdim
-            ve yönettim. 2017'den beri profesyonel olarak dağ bisikleti biniyorum. Hem
-            ulaşım olarak, hem hobi olarak bisiklet ile ilgilenmek ve doğanın içerisinde
-            olmak beni rahatlatıyor.
+            ve araştırarak öğrenmeyi severim. 2017'den beri profesyonel olarak dağ
+            bisikleti biniyorum.
           </p>
           <div style={{ display: "flex", gap: "2rem" }}>
           </div>
