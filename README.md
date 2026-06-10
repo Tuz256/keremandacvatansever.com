@@ -1,4 +1,4 @@
-# My Personal Website
+# ͙͘͡★🌐 My Personal Website 🌐͙͘͡★
 
 This is my first published personal website. Its fully build with React used Ai tools.
 
@@ -12,20 +12,20 @@ The site will include these;
 * Food recipies       (⏳ In development)
 
 
-## Front-end
+## 🎨 Front-end
 
-I like styling. But I hate complicated and chaotic structure of html, css and java.
+I like styling. But I hate html, css and java. Their structure is complicated and chaotic., css and java.
 So I'm using;
 
 * React
 
 
-## Back-end
+## 👨‍💻 Back-end
 
-It not coded yet.
+It not coded yet.     (📅 Planned)
 
 
-## Database
+## 🛢 Database
 
-It not coded yet.
+It not coded yet.     (📅 Planned)
  
